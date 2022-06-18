@@ -9,7 +9,6 @@ import pl.ue.project.repository.AuthorRepository;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
