@@ -17,16 +17,11 @@ public class AuthorService {
     private final AuthorRepository repository;
 
     public AuthorDto saveAuthor(AuthorDto authorDto) {
-        final Author saved = repository.save(Author.builder()
+        return mapAuthorToDto(repository.save(Author.builder()
                 .firstName(authorDto.getFirstName())
                 .lastName(authorDto.getLastName())
-                .build());
-        return AuthorDto.builder()
-                .id(saved.getId())
-                .firstName(saved.getFirstName())
-                .lastName(saved.getLastName())
                 .books(Collections.emptyList())
-                .build();
+                .build()));
     }
 
     public AuthorDto findAuthor(Long id) {
@@ -65,7 +60,6 @@ public class AuthorService {
                         .map(b -> BookWithoutAuthorAndCopiesDto.builder()
                                 .id(b.getId())
                                 .title(b.getTitle())
-                                .datePublished(b.getDatePublished())
                                 .build())
                         .collect(Collectors.toList()))
                 .build();

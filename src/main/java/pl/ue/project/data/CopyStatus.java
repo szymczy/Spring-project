@@ -7,12 +7,12 @@ public enum CopyStatus {
     BORROWED("BORROWED"),
     OVERDUE("OVERDUE");
 
-
     private final String text;
 
     CopyStatus(final String text) {
         this.text = text;
     }
+
     @Override
     public String toString() {
         return text;
